@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_26_101130) do
+ActiveRecord::Schema.define(version: 2019_06_26_104555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "db_schemas", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_db_schemas_on_user_id"
+  end
+
+  create_table "sharings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "db_schema_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["db_schema_id"], name: "index_sharings_on_db_schema_id"
+    t.index ["user_id"], name: "index_sharings_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
