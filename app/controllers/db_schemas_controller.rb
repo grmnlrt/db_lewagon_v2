@@ -6,8 +6,8 @@ class DbSchemasController < ApplicationController
   def show;end
 
   def index
-    p @my_db_schemas     = current_user.db_schemas
-    p @db_schema_sharing = current_user.sharings.map(&:db_schema)
+    @my_db_schemas     = current_user.db_schemas
+    @db_schema_sharing = current_user.sharings.map(&:db_schema)
   end
 
   def new
