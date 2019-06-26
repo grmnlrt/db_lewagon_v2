@@ -1,12 +1,6 @@
 class DbSchemaPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope.where(user: user)
-    end
-  end
-
   def show?
-    record.user == user
+    current_user_is_owner? || current_user_is_collaborator
   end
 
   def create?
@@ -33,5 +27,9 @@ class DbSchemaPolicy < ApplicationPolicy
 
   def current_user_is_owner?
     record.user == user
+  end
+
+  def current_user_is_collaborator
+    record.sharings.map(&:user).include?(user)
   end
 end
