@@ -10,7 +10,6 @@ class DbSchemasController < ApplicationController
 
   def index
     @db_schemas = policy_scope(DbSchema)
-
   end
 
   def new
