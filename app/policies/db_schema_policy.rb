@@ -8,4 +8,20 @@ class DbSchemaPolicy < ApplicationPolicy
   def show?
     record.user == user
   end
+  
+  def create?
+    true
+  end
+
+  def new?
+    create?
+  end
+
+  def update?
+    true
+  end
+
+  def edit?
+    update?
+  end
 end
