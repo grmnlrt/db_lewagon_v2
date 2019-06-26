@@ -6,10 +6,11 @@ class SharingsController < ApplicationController
     authorize @sharing
     if params[:token] == @db_schema.token
       @sharing.save
+      redirect_to db_schema_path(@db_schema)
     else
       flash[:alert] = "This action is not available"
+      redirect_to root_path
     end
-    redirect_to root_path
   end
 
   private
