@@ -1,4 +1,5 @@
 <%= simple_form_for @db_schema do |f| %>
+  <%= f.input :name %>
   <%= f.input :content %>
   <%= f.submit "Create a DB Schema", class: "btn btn-primary" %>
 <% end %>

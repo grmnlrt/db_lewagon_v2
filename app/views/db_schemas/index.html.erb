@@ -1,0 +1,5 @@
+<ul>
+  <% @db_schemas.each do |db_schema| %>
+    <li><%= link_to db_schema.name, db_schema_path(db_schema) %></li>
+  <% end %>
+</ul>
