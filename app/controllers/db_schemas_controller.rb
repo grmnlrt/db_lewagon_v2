@@ -43,7 +43,7 @@ class DbSchemasController < ApplicationController
   private
 
   def db_schema_params
-    params.require(:db_schema).permit(:content)
+    params.require(:db_schema).permit(:content, :name)
   end
 
   def set_db_schema
