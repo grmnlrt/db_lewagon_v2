@@ -1,3 +1,11 @@
+<!-- to destroy -->
+<ul>
+  <% @db_schemas.each do |db_schema| %>
+    <li><%= link_to db_schema.name, db_schema_path(db_schema) %> <%= db_schema_sharings_url(db_schema, token: db_schema.token) %> </li>
+  <% end %>
+</ul>
+
+
 <div class="wrapper">
   <div class="container">
     <div class="schemas my-schemas">
