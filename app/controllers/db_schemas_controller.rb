@@ -1,5 +1,5 @@
 class DbSchemasController < ApplicationController
-  before_action :set_db_schema, only: [:edit, :update]
+  before_action :set_db_schema, only: [:edit, :update, :destroy]
   after_action :authorize_db_schema, except: [:index]
 
   def new
@@ -25,6 +25,11 @@ class DbSchemasController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @db_schema.destroy
+    redirect_ot root_path
   end
 
   private
