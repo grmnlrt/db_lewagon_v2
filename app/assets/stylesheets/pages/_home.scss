@@ -1,1 +1,27 @@
 // Specific CSS for your home-page
+.db-card {
+  padding: 10px;
+  background: white;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-infos {
+  img {
+    height: 16px;
+  }
+}
+
+.left-infos-content {
+  display: flex;
+  align-items: center;
+}
+
+.left-infos-text {
+  margin-bottom: 0px;
+  margin-left: 5px;
+}
