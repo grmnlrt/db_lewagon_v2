@@ -1,10 +1,15 @@
 class SharingsController < ApplicationController
   before_action :set_db_schema, only: [:create]
-  after_action :authorize_db_schema, except: [:create]
 
   def create
+    puts "--------"
+    p params
+    @sharing = Sharing.new(user: current_user, db_schema: @db_schema)
+    authorize @sharing
     if params[:token] == @db_schema.token
-      @sharing = Sharings.create(user: current_user, shema: @db_schema)
+      @sharing.save
+
+      puts "after sharing"
     else
       flash[:alert] = "This action is not available"
     end
@@ -14,10 +19,6 @@ class SharingsController < ApplicationController
   private
 
   def set_db_schema
-    @db_schema = DbSchema.find(params[:id])
-  end
-
-  def authorize_db_schema
-    authorize @sharing
+    @db_schema = DbSchema.find(params[:db_schema_id])
   end
 end
