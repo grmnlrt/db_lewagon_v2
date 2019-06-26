@@ -2,6 +2,14 @@ class DbSchemasController < ApplicationController
   before_action :set_db_schema, only: [:show, :edit, :update, :destroy]
   after_action :authorize_db_schema, except: [:index]
 
+  def show
+  end
+
+  def index
+    @db_schemas = policy_scope(DbSchema)
+
+  end
+
   def new
     @db_schema = DbSchema.new
   end
@@ -10,7 +18,7 @@ class DbSchemasController < ApplicationController
     @db_schema =DbSchema.new(db_schema_params)
     @db_schema.user = current_user
     if @db_schema.save
-      redirect_to root_path
+      redirect_to db_schema_path(@db_schema)
     else
       render :new
     end
@@ -21,7 +29,7 @@ class DbSchemasController < ApplicationController
 
   def update
     if @db_schema.update(db_schema_params)
-      redirect_to root_path
+      redirect_to db_schema_path(@db_schema)
     else
       render :edit
     end
@@ -29,7 +37,7 @@ class DbSchemasController < ApplicationController
 
   def destroy
     @db_schema.destroy
-    redirect_ot root_path
+    redirect_ot
   end
 
   private
