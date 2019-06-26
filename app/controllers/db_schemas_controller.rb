@@ -1,5 +1,5 @@
 class DbSchemasController < ApplicationController
-  before_action :set_db_schema, only: [:edit, :update]
+  before_action :set_db_schema, only: [:show, :edit, :update]
   after_action :authorize_db_schema, except: [:index]
 
   def new
