@@ -1,10 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-
-  h1 {
-    color: #FD1015;
-  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -16,5 +12,13 @@
 }
 
 .navbar-title {
-  display: "flex";
+  display: flex;
+  align-items: center;
+  h1 {
+    color: #FD1015;
+    margin: 0;
+  }
+  img {
+    margin-right: 10px;
+  }
 }
