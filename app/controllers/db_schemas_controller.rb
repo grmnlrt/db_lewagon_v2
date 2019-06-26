@@ -1,6 +1,9 @@
 class DbSchemasController < ApplicationController
   before_action :set_db_schema, only: [:show, :edit, :update]
   after_action :authorize_db_schema, except: [:index]
+  layout 'sqldesigner', only: :show
+
+  def show;end
 
   def new
     @db_schema = DbSchema.new
