@@ -3,22 +3,24 @@
     <li><%= link_to db_schema.name, db_schema_path(db_schema) %></li>
   <% end %>
 </ul>
-<div class="wrapper">
-  <div class="container">
-    <div class="schemas my-schemas">
-      <div class="schemas-headbar my-schemas-headbar">
-      </div>
-      <div class="schemas-cards my-schemas-cards">
-        <div class="card">
-        </div>
+<div class="container">
+  <div class="schemas my-schemas">
+    <div class="schemas-headbar my-schemas-headbar">
+      <i>sunglass smiley</i>
+      <h2>My <%= @db_schemas.size %> DB schemas</h2>
+      <%= link_to "Add a schema", new_db_schema_path, class: "btn btn-primary" %>
+    </div>
+    <div class="schemas-cards my-schemas-cards">
+      <div class="card">
+        COUCOU
       </div>
     </div>
-    <div class="schemas other-schemas">
-      <div class="schemas-headbar other-schemas-headbar">
-      </div>
-      <div class="schemas-cards other-schemas-cards">
-        <div class="card">
-        </div>
+  </div>
+  <div class="schemas other-schemas">
+    <div class="schemas-headbar other-schemas-headbar">
+    </div>
+    <div class="schemas-cards other-schemas-cards">
+      <div class="card">
       </div>
     </div>
   </div>
