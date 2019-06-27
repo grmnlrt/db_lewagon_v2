@@ -24,11 +24,11 @@ class DbSchemasController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
-    if @db_schema.update(db_schema_params)
+    # binding.pry
+    # puts params
+    @db_schema.content = request.raw_post
+    if @db_schema.save
       redirect_to db_schema_path(@db_schema)
     else
       render :edit
