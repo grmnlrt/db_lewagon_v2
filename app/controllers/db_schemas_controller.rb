@@ -24,11 +24,10 @@ class DbSchemasController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
-    if @db_schema.update(db_schema_params)
+    puts params.keys.size
+    @db_schema.content = params["<?xml version"]
+    if @db_schema.save
       redirect_to db_schema_path(@db_schema)
     else
       render :edit

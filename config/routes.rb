@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'db_schemas#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :db_schemas
-  # get   resources :sharings, only: [:create]
+  resources :db_schemas, except: [:edit]
   get "/db_schemas/:db_schema_id/sharings/:token", to: "sharings#create", as: :db_schema_sharings
+  post "/db_schemas/:id", to: "db_schemas#update"
 end
