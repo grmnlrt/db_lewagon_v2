@@ -25,7 +25,7 @@ class DbSchemasController < ApplicationController
   end
 
   def update
-    puts params.keys.size
+    puts params
     @db_schema.content = params["<?xml version"]
     if @db_schema.save
       redirect_to db_schema_path(@db_schema)
